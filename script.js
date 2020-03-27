@@ -6,16 +6,21 @@ if ("serviceWorker" in navigator) {
 
 let deferredPrompt;
 
-window.addEventListener("beforeinstallprompt", function(event) {
+window.addEventListener("beforeinstallprompt", function(e) {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();
   // Stash the event so it can be triggered later.
   deferredPrompt = e;
 
   console.log(e.platforms); // e.g., ["web", "android", "windows"]
-  e.userChoice.then(function(choiceResult) {
-    console.log(choiceResult.outcome); // either "accepted" or "dismissed"
-  }, handleError);
+  e.userChoice.then(
+    function(choiceResult) {
+      console.log(choiceResult.outcome); // either "accepted" or "dismissed"
+    },
+    function(err) {
+      console.log(err);
+    }
+  );
 });
 
 function documentReady(fn) {
@@ -57,6 +62,12 @@ function startTimer() {
     m = m - 1;
   }
   if (m < 0) {
+    var reloadButton = document.querySelector("footer a");
+    reloadButton.className = "";
+    reloadButton.addEventListener("click", function(e) {
+      window.location.reload();
+    });
+
     return false;
   }
 

@@ -67,12 +67,17 @@ body {
   width: 12px;
 }
 
-.timer {
+.footer {
   margin-bottom: 30px;
   font-size: 1.5rem;
   font-weight: bold;
   position: fixed;
   bottom: 0;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
 }
 
 .container.breatheIn {
@@ -139,4 +144,8 @@ body {
   to {
     transform: scale(1);
   }
+}
+
+.hide {
+  display: none;
 }
