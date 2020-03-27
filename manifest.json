@@ -3,7 +3,7 @@
   "short_name": "breath",
   "description": "366 breath",
   "lang": "en-US",
-  "start_url": "/breathe",
+  "start_url": ".",
   "background_color": "#07213b",
   "theme_color": "#07213b",
   "display": "minimal-ui",
