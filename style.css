@@ -1,0 +1,142 @@
+body {
+  align-items: center;
+  background: #07213b;
+  font-family: monospace;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  margin: 0;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  height: 215px;
+  width: 215px;
+  position: relative;
+  transform: scale(1);
+}
+
+.circle-base {
+  background-color: #010f1c;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.circle-gradient {
+  background: conic-gradient(
+    #4d7cae 0%,
+    #0c2948 20%,
+    #fff 20%,
+    #fff 60%,
+    #081b41 60%,
+    #7c99b7 100%
+  );
+  border-radius: 50%;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  height: 225px;
+  width: 225px;
+  z-index: -2;
+}
+
+.circle-line {
+  animation: rotate 15s linear forwards infinite;
+  transform-origin: bottom center;
+  position: absolute;
+  top: 2px;
+  height: 105px;
+}
+
+.pointer {
+  background-color: #fff;
+  border-radius: 50%;
+  display: block;
+  height: 12px;
+  width: 12px;
+}
+
+.timer {
+  margin-bottom: 30px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  position: fixed;
+  bottom: 0;
+}
+
+.container.breatheIn {
+  animation: breatheIn 3s linear forwards;
+}
+
+.container.beating {
+  animation: beating 1s infinite;
+}
+
+.container.breatheOut {
+  animation: breatheOut 6s linear forwards;
+}
+
+@keyframes beating {
+  0% {
+    transform: scale(1.2);
+  }
+  20% {
+    transform: scale(1.2);
+  }
+  40% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(1.21);
+  }
+  70% {
+    transform: scale(1.2);
+  }
+  80% {
+    transform: scale(1.21);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes breatheIn {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.2);
+  }
+}
+
+@keyframes breatheOut {
+  from {
+    transform: scale(1.2);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
